@@ -6,6 +6,42 @@
     <title>Document</title>
 </head>
 <body>
+    <h1 class="grp1">Javascript is frontend</h1>
+    <h1 id="chng">DOM</h1>
+    <p id="para"></p>
+    <button onclick="change()">Click</button>
+    <h1 id="dom">Dom Model</h1>
+    <h1 class="grp1">Dom Model</h1>
+    
     
 </body>
+<script>
+        // let content = document.getElementsByTagName('h1')
+        // console.log(content[1]); /* Put the array index values */
+        // let content1 = document.getElementById('dom')
+        // console.log(content1);
+        // let content2 = document.getElementsByClassName('grp1')
+        // console.log(content2);
+        // let content3 = document.querySelector('.grp1')
+        // console.log(content3);
+        // let content4 = document.querySelectorAll('.grp1')
+        // console.log(content4);
+
+        // Changing the contents
+
+        // let content = document.getElementById('dom')
+        // content.innerHTML = 'Document Object Model'
+
+        let content = document.getElementsByClassName('grp1')
+        content[2].innerHTML = 'Document Object Model'
+        chng.innerHTML = 'Ashwin DOM'
+
+        // Even while clicking
+        function change(){
+           para.innerHTML = 'Paragraph changed while button click' 
+           para.style.color = 'red'
+           para.style.fontSize = '50px'
+        }
+        
+</script>
 </html>
