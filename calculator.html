@@ -72,11 +72,11 @@
         }
 
         button:hover {
-                        background-color: #c8f2f7; /* New hover color */
+                        background-color: #c8f2f7; 
                 }
 
         button:active {
-                        background-color: #88dce6; /* New active (clicked) color */
+                        background-color: #88dce6; 
                 }    
                 
         
@@ -86,28 +86,56 @@
 <body>
     <div class="container">
         <div class="calculator" style="border-radius: 20px;">
-            <input type="text" placeholder="0">
-            <button>Cl</button>
-            <button>DEL</button>
-            <button>%</button>
-            <button>/</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>*</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>-</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>+</button>
-            <button>.</button>
-            <button>0</button>
-            <button class="equal">=</button>
+            <input type="text" placeholder="0" readonly id="result"> <!-- readonly - so that the user cant input anything -->
+            <button onclick="clearAll()">Cl</button>
+            <button onclick="del()">DEL</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display(7)">7</button>
+            <button onclick="display(8)">8</button>
+            <button onclick="display(9)">9</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display(4)">4</button>
+            <button onclick="display(5)">5</button>
+            <button onclick="display(6)">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display(1)">1</button>
+            <button onclick="display(2)">2</button>
+            <button onclick="display(3)">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display(0)">0</button>
+            <button class="equal" onclick="equal()">=</button>
           
         </div>
     </div>
 </body>
+<script>
+    // Display each num
+    function display(num){
+        result.value += num;
+    }
+
+    // Cl / clearing the value to default
+    function clearAll(){
+        result.value =""
+    }
+
+    function del(){
+        result.value = result.value.slice(0,-1)
+    }
+
+    function equal(){
+        try {
+            result.value = eval(result.value)
+        } catch (error) {
+           result.value = 'Error'
+           setTimeout(() => {
+                clearAll();
+           }, 1000); 
+        }
+        
+    }
+</script>
 </html>
+
